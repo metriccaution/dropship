@@ -17,7 +17,7 @@ const production = process.env.NODE_ENV === "production";
 export default {
   input: "src/index.tsx",
   output: {
-    file: "public/index.js",
+    file: "dist/index.js",
     format: "iife",
   },
   plugins: [
@@ -59,7 +59,7 @@ export default {
     }),
     // Style sheets
     scss({
-      output: "public/styles.css",
+      output: "dist/styles.css",
     }),
     // Minifying
     terser(),
