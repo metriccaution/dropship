@@ -1,0 +1,33 @@
+{
+  "name": "md-editor",
+  "version": "1.0.0",
+  "description": "Web markdown editor",
+  "scripts": {
+    "prebuild": "rm -rf public && tsc",
+    "build": "rollup -c rollup.config.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@types/codemirror": "0.0.91",
+    "@types/marked": "^0.7.3",
+    "codemirror": "^5.52.2",
+    "marked": "^0.8.2",
+    "preact": "^10.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@rollup/plugin-html": "^0.1.1",
+    "@rollup/plugin-replace": "^2.3.1",
+    "@babel/plugin-transform-react-jsx": "^7.9.4",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "rollup": "^1.20.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-scss": "^2.2.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "typescript": "^3.8.3"
+  }
+}
