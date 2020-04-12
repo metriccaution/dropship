@@ -1,5 +1,5 @@
 import marked from "marked";
-import { h } from "preact";
+import { h, FunctionalComponent } from "preact";
 
 import "./index.scss";
 
@@ -7,9 +7,13 @@ export interface PreviewProps {
   markdown: string;
 }
 
-export default ({ markdown }: PreviewProps) => (
+const Preview: FunctionalComponent<PreviewProps> = ({
+  markdown,
+}: PreviewProps) => (
   <div
     class="markdown-preview"
     dangerouslySetInnerHTML={{ __html: marked(markdown) }}
   />
 );
+
+export default Preview;

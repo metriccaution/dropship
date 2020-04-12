@@ -8,10 +8,11 @@ import scss from "rollup-plugin-scss";
 import { terser } from "rollup-plugin-terser";
 
 // TODO - Dev Server
-// TODO - Linting
 // TODO - Prod mode vs dev mode
 
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
+// eslint-disable-next-line no-undef
+const production = process.env.NODE_ENV === "production";
 
 export default {
   input: "src/index.tsx",
@@ -23,7 +24,7 @@ export default {
     // Production mode where needed
     replace({
       "process.env.NODE_ENV": JSON.stringify(
-        process.env.NODE_ENV === "production" ? "production" : "development"
+        production ? "production" : "development"
       ),
     }),
     // Module system - Actually allow imports

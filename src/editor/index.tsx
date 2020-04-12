@@ -13,26 +13,21 @@ export interface CodeMirrorProps {
   onChange: (text: string) => void;
 }
 
-export interface CodeMirrorState {}
-
 /**
  * Wrapper around the text-editor component
  */
-export default class Editor extends Component<
-  CodeMirrorProps,
-  CodeMirrorState
-> {
+export default class Editor extends Component<CodeMirrorProps, {}> {
   private editorRef: RefObject<HTMLDivElement>;
   private editor: CodeMirror.Editor | null;
 
-  constructor(props: CodeMirrorProps) {
-    super(props);
+  constructor(properties: CodeMirrorProps) {
+    super(properties);
 
     this.editorRef = createRef();
     this.editor = null;
   }
 
-  public componentDidMount() {
+  public componentDidMount(): void {
     if (this.editorRef.current) {
       this.editor = CodeMirror(this.editorRef.current, {
         value: this.props.value,
@@ -52,7 +47,7 @@ export default class Editor extends Component<
             throw new Error("Can't get tabs");
           }
 
-          cm.replaceSelection(Array(indentUnit + 1).join(" "));
+          cm.replaceSelection(new Array(indentUnit + 1).join(" "));
         },
       });
 
@@ -62,10 +57,10 @@ export default class Editor extends Component<
     }
   }
 
-  public componentWillReceiveProps(nextProps: CodeMirrorProps) {
+  public componentWillReceiveProps(nextProperties: CodeMirrorProps): void {
     if (this.editor) {
-      if (this.getText() !== nextProps.value) {
-        this.editor.setValue(nextProps.value);
+      if (this.getText() !== nextProperties.value) {
+        this.editor.setValue(nextProperties.value);
       }
     }
   }
@@ -74,7 +69,7 @@ export default class Editor extends Component<
     return this.editor ? this.editor.getValue() : "";
   }
 
-  public render() {
+  public render(): h.JSX.Element {
     return <div class="editor-container" ref={this.editorRef} />;
   }
 }

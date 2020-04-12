@@ -1,28 +1,17 @@
-import { h } from "preact";
-
+import { h, FunctionalComponent } from "preact";
 import "./index.scss";
 
-export interface TabProps {
+export interface TabsProps {
   active: string;
   tabs: string[];
   onTabChange: (tabName: string) => void;
 }
 
-const Tab = ({
-  text,
+const Tabs: FunctionalComponent<TabsProps> = ({
+  tabs,
   active,
-  select,
-}: {
-  active: boolean;
-  text: string;
-  select: () => void;
-}) => (
-  <button class={`tab ${active ? "active" : ""}`} onClick={select}>
-    {text}
-  </button>
-);
-
-export default ({ tabs, active, onTabChange }: TabProps) => {
+  onTabChange,
+}: TabsProps) => {
   return (
     <div class="tab-bar">
       {tabs.map((tab, index) => (
@@ -30,9 +19,27 @@ export default ({ tabs, active, onTabChange }: TabProps) => {
           key={index}
           text={tab}
           active={tab === active}
-          select={() => onTabChange(tab)}
+          select={(): void => onTabChange(tab)}
         />
       ))}
     </div>
   );
 };
+
+interface TabProps {
+  active: boolean;
+  text: string;
+  select: () => void;
+}
+
+const Tab: FunctionalComponent<TabProps> = ({
+  text,
+  active,
+  select,
+}: TabProps) => (
+  <button class={`tab ${active ? "active" : ""}`} onClick={select}>
+    {text}
+  </button>
+);
+
+export default Tabs;

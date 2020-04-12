@@ -27,43 +27,47 @@ class App extends Component<{}, AppState> {
     };
   }
 
-  render() {
+  private tabContents(): h.JSX.Element | null {
     const {
       markdownText,
-      tab: { tabs, currentTab },
+      tab: { currentTab },
     } = this.state;
 
-    const body = (() => {
-      switch (currentTab) {
-        case "Editor":
-          return (
-            <Editor
-              tabWidth={4}
-              value={markdownText}
-              onChange={(value) => {
-                this.setState({ markdownText: value });
-              }}
-            />
-          );
-        case "Preview":
-          return <Preview markdown={markdownText} />;
-        default:
-          return null;
-      }
-    })();
+    switch (currentTab) {
+      case "Editor":
+        return (
+          <Editor
+            tabWidth={4}
+            value={markdownText}
+            onChange={(value): void => {
+              this.setState({ markdownText: value });
+            }}
+          />
+        );
+      case "Preview":
+        return <Preview markdown={markdownText} />;
+      default:
+        return null;
+    }
+  }
+
+  render(): h.JSX.Element {
+    const {
+      tab: { tabs, currentTab },
+    } = this.state;
 
     return (
       <div>
         <Tabs
           active={currentTab}
           tabs={tabs}
-          onTabChange={(tab) =>
+          onTabChange={(tab): void =>
             this.setState({
               tab: { ...this.state.tab, currentTab: tab as TabName },
             })
           }
         />
-        {body}
+        {this.tabContents()}
       </div>
     );
   }
