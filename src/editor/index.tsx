@@ -38,6 +38,8 @@ export default class Editor extends Component<CodeMirrorProps, {}> {
         theme: "moxer",
         tabSize: this.props.tabWidth,
         lineNumbers: true,
+        lineWrapping: true,
+        autofocus: true,
       });
 
       this.editor.setOption("extraKeys", {

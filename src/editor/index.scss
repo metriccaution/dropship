@@ -1,5 +1,6 @@
 .editor-container {
   > .CodeMirror {
     height: auto;
+    min-height: 20em;
   }
 }

@@ -1,8 +1,10 @@
+import debounce from "p-debounce";
+import prettier from "prettier/standalone";
+import markdownParser from "prettier/parser-markdown";
 import { h, render, Component } from "preact";
 import Tabs from "./tabs";
 import Editor from "./editor";
 import Preview from "./preview";
-
 import "./index.scss";
 
 type TabName = "Editor" | "Preview";
@@ -16,6 +18,8 @@ interface AppState {
 }
 
 class App extends Component<{}, AppState> {
+  private onChange: (data: string) => Promise<string>;
+
   constructor() {
     super({});
     this.state = {
@@ -25,6 +29,14 @@ class App extends Component<{}, AppState> {
       },
       markdownText: "",
     };
+
+    this.onChange = debounce(async (data: string) => {
+      return prettier.format(data, {
+        parser: "markdown",
+        tabWidth: 4,
+        plugins: [markdownParser],
+      });
+    }, 1000 * 5);
   }
 
   private tabContents(): h.JSX.Element | null {
@@ -41,6 +53,9 @@ class App extends Component<{}, AppState> {
             value={markdownText}
             onChange={(value): void => {
               this.setState({ markdownText: value });
+              this.onChange(value).then((formatted) => {
+                this.setState({ markdownText: formatted });
+              });
             }}
           />
         );
