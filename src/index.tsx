@@ -7,7 +7,7 @@ import Editor from "./editor";
 import Preview from "./preview";
 import "./index.scss";
 
-type TabName = "Editor" | "Preview";
+type TabName = "Editor" | "View";
 
 interface AppState {
   tab: {
@@ -25,7 +25,7 @@ class App extends Component<{}, AppState> {
     this.state = {
       tab: {
         currentTab: "Editor",
-        tabs: ["Editor", "Preview"],
+        tabs: ["Editor", "View"],
       },
       markdownText: "",
     };
@@ -59,7 +59,7 @@ class App extends Component<{}, AppState> {
             }}
           />
         );
-      case "Preview":
+      case "View":
         return <Preview markdown={markdownText} />;
       default:
         return null;
