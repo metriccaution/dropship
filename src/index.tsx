@@ -30,7 +30,7 @@ class App extends Component<{}, AppState> {
       markdownText: "",
     };
 
-    this.onChange = debounce(async (data: string) => {
+    this.onChange = debounce((data: string) => {
       return prettier.format(data, {
         parser: "markdown",
         tabWidth: 4,

@@ -54,7 +54,7 @@ export default {
     // Give the page a body to bootstrap
     html({
       fileName: "index.html",
-      title: "Markdown Editor",
+      title: "Dropship",
       template: () => readFileSync("static/index-template.html"),
     }),
     // Style sheets
