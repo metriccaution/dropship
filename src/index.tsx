@@ -33,7 +33,7 @@ class App extends Component<{}, AppState> {
     this.onChange = debounce((data: string) => {
       return prettier.format(data, {
         parser: "markdown",
-        tabWidth: 4,
+        tabWidth: 2,
         plugins: [markdownParser],
       });
     }, 1000 * 5);
