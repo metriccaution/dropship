@@ -6,6 +6,7 @@ import Tabs from "./tabs";
 import Editor from "./editor";
 import Preview from "./preview";
 import "./index.scss";
+import initialiseApp from "./init";
 
 type TabName = "Editor" | "View";
 
@@ -72,7 +73,7 @@ class App extends Component<{}, AppState> {
     } = this.state;
 
     return (
-      <div>
+      <div id="app">
         <Tabs
           active={currentTab}
           tabs={tabs}
@@ -88,4 +89,6 @@ class App extends Component<{}, AppState> {
   }
 }
 
+// TODO - Separate file
 render(<App />, document.body);
+initialiseApp();

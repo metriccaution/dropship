@@ -1,3 +1,7 @@
+/**
+ * Text editor component - Largely a simplifying wrapper around Code Mirror
+ */
+
 import { h, Component, createRef, RefObject } from "preact";
 import CodeMirror from "codemirror";
 import "./index.scss";

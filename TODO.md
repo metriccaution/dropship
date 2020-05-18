@@ -35,6 +35,16 @@ The general approach here will be to see actual use with this project and then s
 - Something like [Markmap-Lib](https://markmap.js.org/repl/)
 - Easy viewing of document structure
 
-## Build on push
+## Developer Experience
+
+### Build on push
 
 - Github actions, or similar to build docs directory on commit, rather than requiring it to be done manually
+
+### Source Maps / Debugging
+
+### Rollup Dev Server
+
+### Unit Testing
+
+### Integration Testing
