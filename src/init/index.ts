@@ -5,7 +5,6 @@ import mermaid from "mermaid";
  */
 export default function initialiseApp(): void {
   mermaid.mermaidAPI.initialize({
-    theme: "dark",
     startOnLoad: false,
   });
 }

@@ -38,9 +38,13 @@
   .mermaid-diagram {
     text-align: center;
 
-    > svg {
+    > div {
+      display: inline-block;
       background: #ffffff;
-      padding: 1em;
+
+      > svg {
+        padding: 1em;
+      }
     }
   }
 
