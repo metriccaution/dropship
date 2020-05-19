@@ -28,8 +28,8 @@ export default class Mermaid extends Component<MermaidProps, MermaidState> {
     super(properties);
     this.mermaidEl = createRef();
 
-    const elementId =
-      properties.diagramId || `dropship-mermaid-${diagramCount++}`;
+    const elementId = properties.diagramId ||
+      `dropship-mermaid-${diagramCount++}`;
 
     this.state = {
       id: elementId,
@@ -62,10 +62,9 @@ export default class Mermaid extends Component<MermaidProps, MermaidState> {
   }
 
   public render(): h.JSX.Element {
-    const wrapperId =
-      this.state.renderState !== "loading"
-        ? this.state.id + "-container"
-        : this.state.id;
+    const wrapperId = this.state.renderState !== "loading"
+      ? this.state.id + "-container"
+      : this.state.id;
 
     const message = ((): string | h.JSX.Element | null => {
       switch (this.state.renderState) {

@@ -52,7 +52,9 @@ body {
     text-align: center; }
     .preview .mermaid-diagram > div {
       display: inline-block;
-      background: #ffffff; }
+      background: #ffffff;
+      width: 100%;
+      padding: 1em; }
       .preview .mermaid-diagram > div > svg {
         padding: 1em; }
   .preview .error-block .type {
