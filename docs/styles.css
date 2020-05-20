@@ -5,27 +5,6 @@ body {
   background-color: #090a0f;
   font: sans-serif; }
 
-.editor-container > .CodeMirror {
-  height: auto;
-  min-height: 20em; }
-  .editor-container > .CodeMirror .cm-formatting-code-block {
-    color: #b2e4ae; }
-  .editor-container > .CodeMirror .cm-comment {
-    color: #b2e4ae; }
-
-.tab-bar {
-  padding: 1em 1em 1.5em 1em; }
-  .tab-bar .tab {
-    padding: 0.9em;
-    color: #8e95b4;
-    background: inherit;
-    border: 0; }
-    .tab-bar .tab.active {
-      color: #decb6b;
-      border-color: #decb6b;
-      border-width: 0 0 3px 0;
-      border-style: solid; }
-
 .preview {
   color: #8e95b4; }
   .preview .markdown-preview {
@@ -56,8 +35,30 @@ body {
       width: 100%;
       padding: 1em; }
       .preview .mermaid-diagram > div > svg {
-        padding: 1em; }
+        padding: 1em;
+        max-width: 100%; }
   .preview .error-block .type {
+    color: #b2e4ae; }
+
+.tab-bar {
+  padding: 1em 1em 1.5em 1em; }
+  .tab-bar .tab {
+    padding: 0.9em;
+    color: #8e95b4;
+    background: inherit;
+    border: 0; }
+    .tab-bar .tab.active {
+      color: #decb6b;
+      border-color: #decb6b;
+      border-width: 0 0 3px 0;
+      border-style: solid; }
+
+.editor-container > .CodeMirror {
+  height: auto;
+  min-height: 20em; }
+  .editor-container > .CodeMirror .cm-formatting-code-block {
+    color: #b2e4ae; }
+  .editor-container > .CodeMirror .cm-comment {
     color: #b2e4ae; }
 
 /* BASICS */
