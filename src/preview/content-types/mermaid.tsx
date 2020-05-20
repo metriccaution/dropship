@@ -47,6 +47,14 @@ export default class Mermaid extends Component<MermaidProps, MermaidState> {
           const fixedSvg = svg.replace(/font: ;/, "");
 
           this.mermaidEl.current.innerHTML = fixedSvg;
+
+          // Some versions of Chrome seem to set a maxWidth here, but we already handle this
+          // and it sets it slightly wrong
+          const renderedSvg = this.mermaidEl.current.querySelector("svg");
+          if (renderedSvg && renderedSvg.style.maxWidth) {
+            renderedSvg.style.maxWidth = "";
+          }
+
           this.setState({
             renderState: "rendered",
             error: null,
