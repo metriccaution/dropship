@@ -4,11 +4,12 @@ import markdownParser from "prettier/parser-markdown";
 import { h, render, Component } from "preact";
 import Tabs from "./tabs";
 import Editor from "./editor";
+import Export from "./export";
 import Preview from "./preview";
 import "./index.scss";
 import initialiseApp from "./init";
 
-type TabName = "Editor" | "View";
+type TabName = "Editor" | "View" | "Export";
 
 interface AppState {
   tab: {
@@ -26,7 +27,7 @@ class App extends Component<{}, AppState> {
     this.state = {
       tab: {
         currentTab: "Editor",
-        tabs: ["Editor", "View"],
+        tabs: ["Editor", "View", "Export"],
       },
       markdownText: "",
     };
@@ -62,6 +63,8 @@ class App extends Component<{}, AppState> {
         );
       case "View":
         return <Preview markdown={markdownText} />;
+      case "Export":
+        return <Export markdown={markdownText} />;
       default:
         return null;
     }

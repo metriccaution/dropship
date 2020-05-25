@@ -1,0 +1,17 @@
+.export {
+  padding: 1em 1em 1.5em 1em;
+  color: #8e95b4;
+
+  button {
+    padding: 0.9em;
+    color: #decb6b;
+    border-color: #decb6b;
+    border-width: 0 0 3px 0;
+    border-style: solid;
+    background: inherit;
+  }
+
+  .html-render {
+    display: none;
+  }
+}
