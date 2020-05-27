@@ -23,13 +23,6 @@ The general approach here will be to see actual use with this project and then s
 - Export all docs rather than one
   - I.e. as a zip or similar archive format
 
-## Export documents
-
-- Allows for sharing data with people who aren't familiar with markdown
-- Possible formats:
-  - PDF
-  - docx
-
 ## Mindmapping
 
 - Something like [Markmap-Lib](https://markmap.js.org/repl/)

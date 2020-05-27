@@ -5,6 +5,14 @@ body {
   background-color: #090a0f;
   font: sans-serif; }
 
+.editor-container > .CodeMirror {
+  height: auto;
+  min-height: 20em; }
+  .editor-container > .CodeMirror .cm-formatting-code-block {
+    color: #b2e4ae; }
+  .editor-container > .CodeMirror .cm-comment {
+    color: #b2e4ae; }
+
 .tab-bar {
   padding: 1em 1em 1.5em 1em; }
   .tab-bar .tab {
@@ -17,14 +25,6 @@ body {
       border-color: #decb6b;
       border-width: 0 0 3px 0;
       border-style: solid; }
-
-.editor-container > .CodeMirror {
-  height: auto;
-  min-height: 20em; }
-  .editor-container > .CodeMirror .cm-formatting-code-block {
-    color: #b2e4ae; }
-  .editor-container > .CodeMirror .cm-comment {
-    color: #b2e4ae; }
 
 .export {
   padding: 1em 1em 1.5em 1em;

@@ -6,6 +6,7 @@ import babel from "rollup-plugin-babel";
 import { readFileSync } from "fs";
 import scss from "rollup-plugin-scss";
 import { terser } from "rollup-plugin-terser";
+import copy from "rollup-plugin-copy";
 
 // TODO - Dev Server
 // TODO - Prod mode vs dev mode
@@ -55,7 +56,7 @@ export default {
     html({
       fileName: "index.html",
       title: "Dropship",
-      template: () => readFileSync("static/index-template.html"),
+      template: () => readFileSync("templates/index-template.html"),
     }),
     // Style sheets
     scss({
@@ -63,5 +64,9 @@ export default {
     }),
     // Minifying
     terser(),
+    // Static resources, e.g. favicon
+    copy({
+      targets: [{ src: "static/**/*", dest: "docs" }],
+    }),
   ],
 };
