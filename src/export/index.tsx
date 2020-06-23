@@ -65,14 +65,24 @@ export interface ExportProps {
 }
 
 /**
+ * State for exporting
+ */
+interface ExportState {
+  renderCss: string;
+}
+
+/**
  * Tooling for exporting the page to HTML
  */
-export default class ExportTab extends Component<ExportProps, {}> {
+export default class ExportTab extends Component<ExportProps, ExportState> {
   private editorRef: RefObject<HTMLDivElement>;
 
   constructor(properties: ExportProps) {
     super(properties);
     this.editorRef = createRef();
+    this.state = {
+      renderCss: "",
+    };
   }
 
   /**
@@ -116,6 +126,9 @@ export default class ExportTab extends Component<ExportProps, {}> {
             <style>
                 ${exportedStyles}
             </style>
+            <style>
+                ${this.state.renderCss}
+            </style>
         </head>
         <body>
             ${this.editorRef.current.innerHTML}
@@ -127,6 +140,17 @@ export default class ExportTab extends Component<ExportProps, {}> {
     return (
       <div class="export">
         <button onClick={this.openAsTab.bind(this)}>Open In New Tab</button>
+
+        <h1>Export Styling</h1>
+        <p>Custom CSS for exported documents</p>
+        <textarea
+          value={this.state.renderCss}
+          onKeyDown={(event: any): void =>
+            this.setState({
+              renderCss: event.target.value,
+            })
+          }
+        />
 
         {/* Use a hidden preview tab to render the page */}
         <div class="html-render" ref={this.editorRef}>

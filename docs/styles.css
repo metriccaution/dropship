@@ -38,6 +38,12 @@ body {
     background: inherit; }
   .export .html-render {
     display: none; }
+  .export textarea {
+    display: block;
+    margin: 3em 0em;
+    width: 50em;
+    max-width: 100%;
+    height: 30em; }
 
 .preview {
   color: #8e95b4; }
